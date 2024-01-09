@@ -7,12 +7,12 @@ int main() {
     float prezzoMassimo = 0, prezzoMinimo = 0;
     float mediaPrezziIntervallo = 0;
     int countAzioni = 0, countAzioniIntervallo = 0;
-    int inserimentoValido = 1; // Flag per gestire reinserimento del prezzo
+    int inserimentoValido = 1; // Flag to manage price reinsertion
 
     printf("Inserisci la denominazione dell'azione (inserisci 'terminato' per terminare): ");
     scanf("%s", denominazione);
 
-    while (strcmp(denominazione, "terminato") != 0) {
+    while (strcmp(denominazione, "terminato") != 0) {//Until the user types 'Finished', the program continues to ask for the name.
         do {
             printf("Inserisci il prezzo dell'azione: ");
             scanf("%f", &prezzo);
@@ -25,7 +25,7 @@ int main() {
             }
         } while (!inserimentoValido);
 
-        // Aggiorna le informazioni
+        // Update information
         sommaPrezzi += prezzo;
         mediaPrezzi = sommaPrezzi / (float)countAzioni;
         countAzioni++;
@@ -43,12 +43,12 @@ int main() {
             countAzioniIntervallo++;
         }
 
-        // Richiedi input per la prossima azione
+        // Request input for next action
         printf("Inserisci la denominazione dell'azione (inserisci 'terminato' per terminare): ");
         scanf("%s", denominazione);
     }
 
-    // Visualizza i risultati
+    // View the results
     printf("\nRisultati:\n");
     printf("1) Somma dei prezzi delle azioni: %.2f\n", sommaPrezzi);
     printf("2) Media dei prezzi delle azioni: %.2f\n", mediaPrezzi);
